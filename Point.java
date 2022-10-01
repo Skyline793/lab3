@@ -34,7 +34,7 @@ public class Point
 	
 	public void Display()
 	{
-		System.out.printf("(%d,%d)\n", X, Y);
+		System.out.printf("(%d,%d)", X, Y);
 	}
 	
 	public void Read()
