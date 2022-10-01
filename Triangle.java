@@ -1,32 +1,32 @@
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Triangle
+public class Triangle //класс треугольник
 {
-	private Point A, B, C;
+	private Point A, B, C; //вершины треугольника
 	
-	Triangle()
+	Triangle() //конструктор без параметров
 	{
 		A = new Point();
 		B = new Point();
 		C = new Point();
 	}
 	
-	Triangle(int x1, int y1, int x2, int y2, int x3, int y3)
+	Triangle(int x1, int y1, int x2, int y2, int x3, int y3) //конструктор с параметрами
 	{
 		A = new Point(x1, y1);
 		B = new Point(x2, y2);
 		C = new Point(x3, y3);
 	}
 	
-	public void Init(int x1, int y1, int x2, int y2, int x3, int y3)
+	public void Init(int x1, int y1, int x2, int y2, int x3, int y3) //метод инициализации
 	{
 		A.Init(x1, y1);
 		B.Init(x2, y2);
 		C.Init(x3, y3);
 	}
 	
-	public void Read()
+	public void Read() //метод ввода с консоли
 	{
 		int x1, y1, x2, y2, x3, y3;
 		Scanner inp = new Scanner(System.in);
@@ -44,7 +44,7 @@ public class Triangle
 		C.Init(x3, y3);
 	}
 	
-	public void Display()
+	public void Display() //метод вывода в консоль
 	{
 		System.out.print("Треугольник с вершинами A");
 		A.Display();
@@ -55,7 +55,7 @@ public class Triangle
 		System.out.println();
 	}
 	
-	public double CalcSquare()
+	public double CalcSquare() //метод вычисления площади 
 	{
 		int x1 = A.GetX(), y1 = A.GetY();
 		int x2 = B.GetX(), y2 = B.GetY();
@@ -65,7 +65,7 @@ public class Triangle
 		return S;
 	}
 	
-	public double CalcPerimeter()
+	public double CalcPerimeter() //метод вычисления периметра
 	{
 		int x1 = A.GetX(), y1 = A.GetY();
 		int x2 = B.GetX(), y2 = B.GetY();

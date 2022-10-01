@@ -1,43 +1,44 @@
 import static java.lang.Math.*;
 import java.util.Scanner;
 
-public class Point
+public class Point //класс точка
 {
-	protected int X, Y;
-	Point()
+	protected int X, Y; //координаты точки
+	
+	Point() //конструктор без параметров
 	{
 		X = 0;
 		Y = 0;
 	}
 	
-	Point(int x, int y)
+	Point(int x, int y) //конструктор с параметрами
 	{
 		X = x;
 		Y = y;
 	}
 	
-	public void Init(int x, int y)
+	public void Init(int x, int y) //метод инициализации
 	{
 		X = x;
 		Y = y;
 	}
 	
-	public int GetX()
+	public int GetX() //метод получения координаты X
 	{
 		return X;
 	}
 	
-	public int GetY()
+	public int GetY() //метод получения координаты Y
 	{
 		return Y;
 	}
 	
-	public void Display()
+	public void Display() //метод вывода в консоль
 	{
 		System.out.printf("(%d,%d)", X, Y);
 	}
 	
-	public void Read()
+	public void Read() //метод ввода с консоли
 	{
 		int x, y;
 		Scanner inp = new Scanner(System.in);
@@ -47,7 +48,7 @@ public class Point
 		this.Init(x, y);
 	}
 	
-	public void PolarCoords()
+	public void PolarCoords() //метод перевода в полярные координаты
 	{
 		double r, f;
 		r = sqrt(X*X + Y*Y);

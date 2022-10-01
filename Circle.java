@@ -1,29 +1,30 @@
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Circle
+public class Circle //класс круг
 {
-	private Point center;
-	private double R;
+	private Point center; //центр круга
+	private double R; //радиус круга
 	
-	Circle()
+	Circle() //конструктор без параметров
 	{
 		center = new Point();
 		R = 0;
 	}
 	
-	Circle(int x, int y, double r)
+	Circle(int x, int y, double r) //конструктор с параметрами
 	{
 		center = new Point(x,y);
 		R = r;
 	}
-	public void Init(int x, int y, double r)
+	
+	public void Init(int x, int y, double r) //метод инициализации
 	{
 		center.Init(x, y);
 		R = r;
 	}
 	
-	public void Read()
+	public void Read() //метод ввода с консоли
 	{
 		int x, y;
 		double r;
@@ -36,14 +37,14 @@ public class Circle
 		this.Init(x, y, r);
 	}
 	
-	public void Display()
+	public void Display() //метод вывода в консоль
 	{
 		System.out.print("Круг с центром в точке О");
 		center.Display();
 		System.out.printf(" и радиусом R=%.3f\n", R);
 	}
 	
-	public void PrintEquation()
+	public void PrintEquation() //метод вывода уравнения окружности
 	{
 		int x = center.GetX();
 		int y = center.GetY();
@@ -78,7 +79,7 @@ public class Circle
 		}
 	}	
 	
-	public double CalcSquare()
+	public double CalcSquare() //метод вычисления площади круга
 	{
 		double S;
 		S = PI * R * R;

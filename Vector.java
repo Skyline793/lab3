@@ -1,29 +1,31 @@
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Vector extends Point
+public class Vector extends Point //класс вектор, наследуемый от класса точка
 {
-	Vector()
+	Vector() //конструктор без параметров
 	{
 		super(0,0);
 	}
-	Vector(int x, int y)
+	
+	Vector(int x, int y) //конструктор с параметрами
 	{
 		super(x, y);
 	}
+	
 	@Override
-	public void Display()
+	public void Display() //метод вывода в консоль
 	{
 		System.out.printf("Вектор с координатами: (%d,%d)\n", X, Y);
 	}
 	
-	public double CalcVectLen()
+	public double CalcVectLen() //метод вычисления длины вектора
 	{
 		double length = sqrt(X * X + Y * Y);
 		return length;
 	}
 	
-	public double CalcScalarProd(Vector v2)
+	public double CalcScalarProd(Vector v2) //метод вычисления скалярного произведения
 	{
 		int x1 = this.X;
 		int y1 = this.Y;

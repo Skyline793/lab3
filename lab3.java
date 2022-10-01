@@ -32,7 +32,7 @@ public class lab3
 		c.Read();
 		c.Display();
 		c.PrintEquation();
-		System.out.println("Площадь круга S=" + c.CalcSquare());
+		System.out.printf("Площадь круга S=%.2f", c.CalcSquare());
 		
 		System.out.println("\nТест класса треугольник");
 		Triangle t = new Triangle(3, 1, 0, 5, -4, 3);
@@ -57,7 +57,6 @@ public class lab3
 		System.out.printf("Площадь параллелограмма S=%.3f\n", pr1.CalcSquare());
 		pr1.Read();
 		pr1.Display();
-		System.out.printf("Площадь параллелограмма S=%.3f\n", pr1.CalcSquare());
-		
+		System.out.printf("Площадь параллелограмма S=%.3f\n", pr1.CalcSquare());	
 	}
 }
