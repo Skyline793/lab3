@@ -39,7 +39,6 @@ public class Triangle
 		System.out.print("Введите координаты вершины C треугольника: ");
 		x3 =inp.nextInt();
 		y3 =inp.nextInt();
-		inp.close();
 		A.Init(x1, y1);
 		B.Init(x2, y2);
 		C.Init(x3, y3);

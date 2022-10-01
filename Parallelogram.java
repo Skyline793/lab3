@@ -55,7 +55,6 @@ public class Parallelogram
 		else
 			cosinus = prod / (len_a * len_b);
 		sinus = sqrt(1 - cosinus * cosinus);
-		System.out.printf("%f %f %f %f %f\n", len_a, len_b, prod, cosinus, sinus);
 		S = len_a * len_b * sinus;
 		return S;	
 	}

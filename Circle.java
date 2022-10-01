@@ -33,7 +33,6 @@ public class Circle
 		y = inp.nextInt();
 		System.out.print("Введите радиус круга R: ");
 		r = inp.nextDouble();
-		inp.close();
 		this.Init(x, y, r);
 	}
 	
