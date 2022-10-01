@@ -14,7 +14,7 @@ public class Vector extends Point
 	@Override
 	public void Display()
 	{
-		System.out.printf("координаты вектора: (%d,%d)\n", X, Y);
+		System.out.printf("Вектор с координатами: (%d,%d)\n", X, Y);
 	}
 	
 	public double CalcVectLen()
@@ -27,7 +27,7 @@ public class Vector extends Point
 	{
 		int x1 = this.X;
 		int y1 = this.Y;
-		int x2 = v2.Y;
+		int x2 = v2.X;
 		int y2 = v2.Y;
 		double prod;
 		prod = x1 * x2 + y1 * y2;
