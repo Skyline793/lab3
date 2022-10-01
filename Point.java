@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Point
 {
-	private int X, Y;
+	protected int X, Y;
 	Point()
 	{
 		X = 0;
@@ -44,7 +44,6 @@ public class Point
 		System.out.print("Введите координаты (x,y): ");
 		x = inp.nextInt();
 		y = inp.nextInt();
-		inp.close();
 		this.Init(x, y);
 	}
 	
