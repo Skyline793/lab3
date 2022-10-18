@@ -1,16 +1,19 @@
+import static java.lang.Math.*;
 public class lab4
 {
 	public static void main(String[] args)
 	{
-		Vector a = new Vector(2,3);
-		Rezult b = new Rezult();
-		System.out.println(b.param);
-		a.CalcVectLen(b);
-		System.out.println(b.param);
-		Triangle tr = new Triangle(1,2, -3, -4, 5, 7);
-		tr.CalcSquare(b);
-		System.out.println(b.param);
-		tr.CalcPerimeter(b);
-		System.out.println(b.param);
+		{
+			Point a = new Point();
+			Point p = new Point(1, -1);
+			Vector v = new Vector(3, 1);
+		}
+		System.out.println("Общее количество точек " + Point.Count());
+		Triangle tr = new Triangle();
+		Circle c = new Circle();
+		System.out.println("Общее количество точек " + Point.Count());
+		System.out.printf("%f\n", Point.PerevodToGradus(3*PI/4));
+
+
 	}
 }
