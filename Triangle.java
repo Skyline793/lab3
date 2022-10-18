@@ -64,6 +64,14 @@ public class Triangle //класс треугольник
 		S = 0.5 * abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1));
 		return S;
 	}
+
+	public void CalcSquare(Rezult rez) //метод вычисления площади с использованием вспомогательного класса
+	{
+		int x1 = A.GetX(), y1 = A.GetY();
+		int x2 = B.GetX(), y2 = B.GetY();
+		int x3 = C.GetX(), y3 = C.GetY();
+		rez.param = 0.5 * abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1));
+	}
 	
 	public double CalcPerimeter() //метод вычисления периметра
 	{
@@ -75,5 +83,16 @@ public class Triangle //класс треугольник
 		double BC = sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
 		double P = AB + AC + BC;
 		return P;
+	}
+
+	public void CalcPerimeter(Rezult rez) //метод вычисления периметра с использованием вспомогательного класса
+	{
+		int x1 = A.GetX(), y1 = A.GetY();
+		int x2 = B.GetX(), y2 = B.GetY();
+		int x3 = C.GetX(), y3 = C.GetY();
+		double AB = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+		double AC = sqrt((x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1));
+		double BC = sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
+		rez.param = AB + AC + BC;
 	}
 }

@@ -12,16 +12,16 @@ public class Circle //класс круг
 		R = 0;
 	}
 	
-	Circle(int x, int y, double r) //конструктор с параметрами
+	Circle(int x, int y, double R) //конструктор с параметрами
 	{
 		center = new Point(x,y);
-		R = r;
+		this.R = R;
 	}
 	
-	public void Init(int x, int y, double r) //метод инициализации
+	public void Init(int x, int y, double R) //метод инициализации
 	{
 		center.Init(x, y);
-		R = r;
+		this.R = R;
 	}
 	
 	public void Read() //метод ввода с консоли
@@ -84,5 +84,10 @@ public class Circle //класс круг
 		double S;
 		S = PI * R * R;
 		return S;
+	}
+
+	public void CalcSquare(Rezult rez) //метод вычисления площади круга с помощью вспомогательного класса
+	{
+		rez.param = PI * R * R;
 	}
 }

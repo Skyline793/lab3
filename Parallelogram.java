@@ -58,4 +58,18 @@ public class Parallelogram //класс параллелограмм
 		S = len_a * len_b * sinus;
 		return S;	
 	}
+
+	public void CalcSquare(Rezult rez)
+	{
+		double len_a, len_b, prod, cosinus, sinus;
+		len_a = a.CalcVectLen();
+		len_b = b.CalcVectLen();
+		prod = a.CalcScalarProd(b);
+		if(len_a == 0 || len_b == 0)
+			cosinus = 0;
+		else
+			cosinus = prod / (len_a * len_b);
+		sinus = sqrt(1 - cosinus * cosinus);
+		rez.param = len_a * len_b * sinus;
+	}
 }

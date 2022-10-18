@@ -24,6 +24,11 @@ public class Vector extends Point //класс вектор, наследуем�
 		double length = sqrt(X * X + Y * Y);
 		return length;
 	}
+
+	public void CalcVectLen(Rezult rez) //метод вычисления длины вектора c помощью вспомогательного класса
+	{
+		rez.param = sqrt(X * X + Y * Y);
+	}
 	
 	public double CalcScalarProd(Vector v2) //метод вычисления скалярного произведения
 	{

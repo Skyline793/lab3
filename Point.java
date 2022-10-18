@@ -11,16 +11,16 @@ public class Point //класс точка
 		Y = 0;
 	}
 	
-	Point(int x, int y) //конструктор с параметрами
+	Point(int X, int Y) //конструктор с параметрами
 	{
-		X = x;
-		Y = y;
+		this.X = X;
+		this.Y = Y;
 	}
 	
-	public void Init(int x, int y) //метод инициализации
+	public void Init(int X, int Y) //метод инициализации
 	{
-		X = x;
-		Y = y;
+		this.X = X;
+		this.Y = Y;
 	}
 	
 	public int GetX() //метод получения координаты X
