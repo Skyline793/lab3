@@ -46,11 +46,11 @@ public class Triangle //класс треугольник
 	
 	public void Display() //метод вывода в консоль
 	{
-		System.out.print("Треугольник с вершинами A");
+		System.out.print("Треугольник с вершинами ");
 		A.Display();
-		System.out.print(", B");
+		System.out.print(", ");
 		B.Display();
-		System.out.print(", C");
+		System.out.print(", ");
 		C.Display();
 		System.out.println();
 	}

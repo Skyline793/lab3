@@ -12,7 +12,18 @@ public class Vector extends Point //класс вектор, наследуем�
 	{
 		super(x, y);
 	}
-	
+
+	@Override
+	public void Read() //метод ввода с консоли
+	{
+		int x, y;
+		Scanner inp = new Scanner(System.in);
+		System.out.print("Введите координаты вектора (x,y): ");
+		x = inp.nextInt();
+		y = inp.nextInt();
+		this.Init(x, y);
+	}
+
 	@Override
 	public void Display() //метод вывода в консоль
 	{
@@ -25,7 +36,7 @@ public class Vector extends Point //класс вектор, наследуем�
 		return length;
 	}
 
-	public void CalcVectLen(Rezult rez) //метод вычисления длины вектора c возвращением результата через вспомогательный класс
+	public void CalcVectLen(Rezult rez) //метод вычисления длины вектора
 	{
 		rez.param = sqrt(X * X + Y * Y);
 	}

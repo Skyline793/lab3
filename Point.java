@@ -29,10 +29,6 @@ public class Point //класс точка
 		counter++;
 	}
 
-	protected void finalize() //"деструктор"
-	{
-		counter--;
-	}
 	public void Init(int X, int Y) //метод инициализации
 	{
 		this.X = X;
@@ -70,7 +66,7 @@ public class Point //класс точка
 		int x, y;
 		String metka;
 		Scanner inp = new Scanner(System.in);
-		System.out.print("Введите координаты (x,y): ");
+		System.out.print("Введите координаты точки (x,y): ");
 		x = inp.nextInt();
 		y = inp.nextInt();
 		System.out.print("Введите идентификатор точки (Enter, чтобы не создавать идентификатор): ");
