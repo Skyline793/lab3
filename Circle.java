@@ -86,7 +86,7 @@ public class Circle //класс круг
 		return S;
 	}
 
-	public void CalcSquare(Rezult rez) //метод вычисления площади круга с помощью вспомогательного класса
+	public void CalcSquare(Rezult rez) //метод вычисления площади c возвращением результата через вспомогательный класс
 	{
 		rez.param = PI * R * R;
 	}

@@ -65,7 +65,7 @@ public class Triangle //класс треугольник
 		return S;
 	}
 
-	public void CalcSquare(Rezult rez) //метод вычисления площади с использованием вспомогательного класса
+	public void CalcSquare(Rezult rez) //метод вычисления площади c возвращением результата через вспомогательный класс
 	{
 		int x1 = A.GetX(), y1 = A.GetY();
 		int x2 = B.GetX(), y2 = B.GetY();
@@ -85,7 +85,7 @@ public class Triangle //класс треугольник
 		return P;
 	}
 
-	public void CalcPerimeter(Rezult rez) //метод вычисления периметра с использованием вспомогательного класса
+	public void CalcPerimeter(Rezult rez) //метод вычисления периметра c возвращением результата через вспомогательный класс
 	{
 		int x1 = A.GetX(), y1 = A.GetY();
 		int x2 = B.GetX(), y2 = B.GetY();

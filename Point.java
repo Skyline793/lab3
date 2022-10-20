@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Point //класс точка
 {
-	private static int counter = 0;
+	private static int counter = 0; //статический счетчик количества точек
+	private String metka = ""; //идентификатор точки
 	protected int X, Y; //координаты точки
 
 	Point() //конструктор без параметров
@@ -20,7 +21,15 @@ public class Point //класс точка
 		counter++;
 	}
 
-	protected void finalize()
+	Point(int X, int Y, String metka) //конструктор с параметрами
+	{
+		this.X = X;
+		this.Y = Y;
+		this.metka = metka;
+		counter++;
+	}
+
+	protected void finalize() //"деструктор"
 	{
 		counter--;
 	}
@@ -28,6 +37,12 @@ public class Point //класс точка
 	{
 		this.X = X;
 		this.Y = Y;
+	}
+
+	public void Init(int X, int Y, String metka){ //метод инициализации с идентификатором
+		this.X = X;
+		this.Y = Y;
+		this.metka = metka;
 	}
 
 	public int GetX() //метод получения координаты X
@@ -42,17 +57,26 @@ public class Point //класс точка
 
 	public void Display() //метод вывода в консоль
 	{
-		System.out.printf("(%d,%d)", X, Y);
+		if(metka.isEmpty())
+			System.out.printf("(%d,%d)", X, Y);
+		else {
+			System.out.print(metka);
+			System.out.printf("(%d,%d)", X, Y);
+		}
 	}
 
 	public void Read() //метод ввода с консоли
 	{
 		int x, y;
+		String metka;
 		Scanner inp = new Scanner(System.in);
 		System.out.print("Введите координаты (x,y): ");
 		x = inp.nextInt();
 		y = inp.nextInt();
-		this.Init(x, y);
+		System.out.print("Введите идентификатор точки (Enter, чтобы не создавать идентификатор): ");
+		inp.skip("\\R");
+		metka = inp.nextLine();
+		this.Init(x, y, metka);
 	}
 
 	public void PolarCoords() //метод перевода в полярные координаты
@@ -76,19 +100,19 @@ public class Point //класс точка
 		System.out.printf("Полярные координаты: r=%.3f f=%.1f\n", r, f);
 	}
 
-	public static double PerevodToGradus(double rad)
+	public static double PerevodToGradus(double rad) //статический метод перевода радиан в градусы
 	{
 		double grad = rad * 180 / PI;
 		return grad;
 	}
 
-	public static double PerevodToRadian(double grad)
+	public static double PerevodToRadian(double grad) //статический метод перевода градусов в радианы
 	{
 		double rad = grad * PI / 180;
 		return rad;
 	}
 
-	public static int Count()
+	public static int GetCount() //статический метод получения счетчика
 	{
 		return counter;
 	}

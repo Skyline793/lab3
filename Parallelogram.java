@@ -59,7 +59,7 @@ public class Parallelogram //класс параллелограмм
 		return S;	
 	}
 
-	public void CalcSquare(Rezult rez)
+	public void CalcSquare(Rezult rez) //метод вычисления площади c возвращением результата через вспомогательный класс
 	{
 		double len_a, len_b, prod, cosinus, sinus;
 		len_a = a.CalcVectLen();
