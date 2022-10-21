@@ -28,20 +28,12 @@ public class Triangle //класс треугольник
 	
 	public void Read() //метод ввода с консоли
 	{
-		int x1, y1, x2, y2, x3, y3;
-		Scanner inp = new Scanner(System.in);
-		System.out.print("Введите координаты вершины A треугольника: ");
-		x1 =inp.nextInt();
-		y1 =inp.nextInt();
-		System.out.print("Введите координаты вершины B треугольника: ");
-		x2 =inp.nextInt();
-		y2 =inp.nextInt();
-		System.out.print("Введите координаты вершины C треугольника: ");
-		x3 =inp.nextInt();
-		y3 =inp.nextInt();
-		A.Init(x1, y1);
-		B.Init(x2, y2);
-		C.Init(x3, y3);
+		System.out.println("Первая вершина треугольника: ");
+		A.Read();
+		System.out.print("Вторая вершина треугольника: ");
+		B.Read();
+		System.out.print("Третья вершина треугольника: ");
+		C.Read();
 	}
 	
 	public void Display() //метод вывода в консоль

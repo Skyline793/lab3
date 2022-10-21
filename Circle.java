@@ -26,20 +26,18 @@ public class Circle //класс круг
 	
 	public void Read() //метод ввода с консоли
 	{
-		int x, y;
 		double r;
 		Scanner inp = new Scanner(System.in);
-		System.out.print("Введите координаты центра круга (x,y): ");
-		x = inp.nextInt();
-		y = inp.nextInt();
+		System.out.println("Центр окружности:");
+		center.Read();
 		System.out.print("Введите радиус круга R: ");
 		r = inp.nextDouble();
-		this.Init(x, y, r);
+		R = r;
 	}
 	
 	public void Display() //метод вывода в консоль
 	{
-		System.out.print("Круг с центром в точке О");
+		System.out.print("Круг с центром в точке ");
 		center.Display();
 		System.out.printf(" и радиусом R=%.3f\n", R);
 	}

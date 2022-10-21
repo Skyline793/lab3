@@ -25,16 +25,10 @@ public class Parallelogram //класс параллелограмм
 	
 	public void Read() //метод ввода с консоли
 	{
-		int x1, y1, x2, y2;
-		Scanner inp = new Scanner(System.in);
-		System.out.print("Введите координаты первого из векторов, на которых построен параллелограмм (x1, y1): ");
-		x1 =inp.nextInt();
-		y1 =inp.nextInt();
-		System.out.print("Введите координаты второго из векторов, на которых построен параллелограмм (x2, y2): ");
-		x2 =inp.nextInt();
-		y2 =inp.nextInt();
-		a.Init(x1, y1);
-		b.Init(x2, y2);
+		System.out.println("Первый из векторов, на которых построен параллелограмм:");
+		a.Read();
+		System.out.println("Второй из векторов, на которых построен параллелограмм:");
+		b.Read();
 	}
 	
 	public void Display() //метод вывода в консоль
