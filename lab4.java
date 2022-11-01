@@ -6,7 +6,7 @@ public class lab4
 		//тест статических методов
 		System.out.println("тест статических методов");
 		double grad = 90, rad = 2*PI/3;
-		System.out.printf("1) Градусы: %.2f радианы: %.2f\n2) Радианы: %.2f градусы: %.2f\n", grad, Point.PerevodToRadian(grad), rad, Point.PerevodToGradus(rad));
+		System.out.printf("1) Градусы: %.2f радианы: %.2f\n2) Радианы: %.2f градусы: %.2f\n", grad, Angle.PerevodToRadian(grad), rad, Angle.PerevodToGradus(rad));
 
 		//Тест возврата значения с помощью вспомогательного класса
 		System.out.println("\nТест возврата значения с помощью вспомогательного класса");

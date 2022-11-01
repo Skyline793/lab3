@@ -30,9 +30,9 @@ public class Triangle //класс треугольник
 	{
 		System.out.println("Первая вершина треугольника: ");
 		A.Read();
-		System.out.print("Вторая вершина треугольника: ");
+		System.out.println("Вторая вершина треугольника: ");
 		B.Read();
-		System.out.print("Третья вершина треугольника: ");
+		System.out.println("Третья вершина треугольника: ");
 		C.Read();
 	}
 	

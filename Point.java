@@ -81,9 +81,9 @@ public class Point //класс точка
 		r = sqrt(X * X + Y * Y);
 		if (X == 0) {
 			if (Y > 0)
-				f = PerevodToGradus(PI / 2);
+				f = Angle.PerevodToGradus(PI / 2);
 			if (Y < 0)
-				f = PerevodToGradus(3 * PI / 2);
+				f = Angle.PerevodToGradus(3 * PI / 2);
 			else f = 0;
 		} else {
 			f = atan((double) Y / X);
@@ -91,21 +91,9 @@ public class Point //класс точка
 				f += 2 * PI;
 			if (X < 0)
 				f += PI;
-			f = PerevodToGradus(f);
+			f = Angle.PerevodToGradus(f);
 		}
 		System.out.printf("Полярные координаты: r=%.3f f=%.1f\n", r, f);
-	}
-
-	public static double PerevodToGradus(double rad) //статический метод перевода радиан в градусы
-	{
-		double grad = rad * 180 / PI;
-		return grad;
-	}
-
-	public static double PerevodToRadian(double grad) //статический метод перевода градусов в радианы
-	{
-		double rad = grad * PI / 180;
-		return rad;
 	}
 
 	public static int GetCount() //статический метод получения счетчика
