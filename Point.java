@@ -1,10 +1,12 @@
 import static java.lang.Math.*;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Point //класс точка
 {
 	private static int counter = 0; //статический счетчик количества точек
-	private String metka = ""; //идентификатор точки
+	protected String metka = ""; //идентификатор точки
 	protected int X, Y; //координаты точки
 
 	Point() //конструктор без параметров
@@ -63,35 +65,51 @@ public class Point //класс точка
 
 	public void Read() //метод ввода с консоли
 	{
-		int x, y;
+		boolean correct = false;
+		int x = 0, y = 0;
 		String metka;
 		Scanner inp = new Scanner(System.in);
-		System.out.print("Введите координаты точки (x,y): ");
-		x = inp.nextInt();
-		y = inp.nextInt();
+		while(correct == false)
+		{
+		try {
+			System.out.print("Введите координаты точки (x,y): ");
+			x = inp.nextInt();
+			y = inp.nextInt();
+			correct = true;
+		}
+		catch(InputMismatchException e) {
+			inp.nextLine();
+			correct = false;
+			System.out.println("Некорректное значение. Повторите ввод: ");
+		}
+	}
 		System.out.print("Введите идентификатор точки (Enter, чтобы не создавать идентификатор): ");
 		inp.skip("\\R");
 		metka = inp.nextLine();
-		this.Init(x, y, metka);
+		this.X = x;
+		this.Y = y;
+		this.metka = metka;
 	}
 
 	public void PolarCoords() //метод перевода в полярные координаты
 	{
-		double r, f;
+		double r, f = 0;
 		r = sqrt(X * X + Y * Y);
-		if (X == 0) {
-			if (Y > 0)
-				f = Angle.PerevodToGradus(PI / 2);
-			if (Y < 0)
-				f = Angle.PerevodToGradus(3 * PI / 2);
-			else f = 0;
-		} else {
-			f = atan((double) Y / X);
+		try {
+			f = atan(Y / X);
 			if (X > 0 && Y < 0)
 				f += 2 * PI;
 			if (X < 0)
 				f += PI;
 			f = Angle.PerevodToGradus(f);
+		}
+		catch (ArithmeticException e) {
+			if (Y > 0)
+				f = Angle.PerevodToGradus(PI / 2);
+			if (Y < 0)
+				f = Angle.PerevodToGradus(3 * PI / 2);
+			if (Y == 0)
+				f = 0;
 		}
 		System.out.printf("Полярные координаты: r=%.3f f=%.1f\n", r, f);
 	}

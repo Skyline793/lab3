@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
@@ -13,21 +14,46 @@ public class Vector extends Point //класс вектор, наследуем�
 		super(x, y);
 	}
 
+	Vector(int x, int y, String metka) //конструктор с параметрами
+	{
+		super(x, y, metka);
+	}
 	@Override
 	public void Read() //метод ввода с консоли
 	{
-		int x, y;
+		boolean correct = false;
+		int x = 0, y = 0;
+		String metka;
 		Scanner inp = new Scanner(System.in);
-		System.out.print("Введите координаты вектора (x,y): ");
-		x = inp.nextInt();
-		y = inp.nextInt();
-		this.Init(x, y);
+		while(correct == false)
+		{
+			try {
+				System.out.print("Введите координаты вектора (x,y): ");
+				x = inp.nextInt();
+				y = inp.nextInt();
+				correct = true;
+			}
+			catch(InputMismatchException e) {
+				inp.nextLine();
+				correct = false;
+				System.out.println("Некорректное значение. Повторите ввод: ");
+			}
+		}
+		System.out.print("Введите идентификатор вектора (Enter, чтобы не создавать идентификатор): ");
+		inp.skip("\\R");
+		metka = inp.nextLine();
+		this.Init(x, y, metka);
 	}
 
 	@Override
 	public void Display() //метод вывода в консоль
 	{
-		System.out.printf("Вектор с координатами: (%d,%d)\n", X, Y);
+		if(metka.isEmpty())
+			System.out.printf("Вектор с координатами: (%d,%d)\n", X, Y);
+		else {
+			System.out.print("Вектор " + metka + " ");
+			System.out.printf("с координатами: (%d,%d)\n", X, Y);
+		}
 	}
 	
 	public double CalcVectLen() //метод вычисления длины вектора

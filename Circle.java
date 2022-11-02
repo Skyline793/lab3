@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
@@ -26,12 +27,29 @@ public class Circle //класс круг
 	
 	public void Read() //метод ввода с консоли
 	{
-		double r;
+		boolean correct = false;
+		double r = 0;
 		Scanner inp = new Scanner(System.in);
 		System.out.println("Центр окружности:");
 		center.Read();
-		System.out.print("Введите радиус круга R: ");
-		r = inp.nextDouble();
+		while(correct == false) {
+			System.out.print("Введите радиус круга R: ");
+			try {
+				r = inp.nextDouble();
+				if(r < 0) throw new Exception("Радиус должен быть положительным!");
+				correct = true;
+			}
+			catch (InputMismatchException e){
+				inp.nextLine();
+				System.out.println("Некорректное значение. Повторите ввод:");
+				correct = false;
+			}
+			catch (Exception e){
+				inp.nextLine();
+				System.out.println(e.getMessage() + " Повторите ввод:");
+				correct = false;
+			}
+		}
 		R = r;
 	}
 	

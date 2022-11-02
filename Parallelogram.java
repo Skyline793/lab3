@@ -43,11 +43,10 @@ public class Parallelogram //класс параллелограмм
 		double S, len_a, len_b, prod, cosinus, sinus;
 		len_a = a.CalcVectLen();
 		len_b = b.CalcVectLen();
+		if(len_a * len_b == 0)
+			return 0;
 		prod = a.CalcScalarProd(b);
-		if(len_a == 0 || len_b == 0)
-			cosinus = 0;
-		else
-			cosinus = prod / (len_a * len_b);
+		cosinus = prod / (len_a * len_b);
 		sinus = sqrt(1 - cosinus * cosinus);
 		S = len_a * len_b * sinus;
 		return S;	
@@ -59,10 +58,13 @@ public class Parallelogram //класс параллелограмм
 		len_a = a.CalcVectLen();
 		len_b = b.CalcVectLen();
 		prod = a.CalcScalarProd(b);
-		if(len_a == 0 || len_b == 0)
-			cosinus = 0;
-		else
+		try {
+			if (len_a * len_b == 0) throw new ArithmeticException();
 			cosinus = prod / (len_a * len_b);
+		}
+		catch (ArithmeticException e) {
+			cosinus = 0;
+		}
 		sinus = sqrt(1 - cosinus * cosinus);
 		rez.param = len_a * len_b * sinus;
 	}
