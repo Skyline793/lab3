@@ -36,7 +36,7 @@ public class Circle //класс круг
 			System.out.print("Введите радиус круга R: ");
 			try {
 				r = inp.nextDouble();
-				if(r < 0) throw new Exception("Радиус должен быть положительным!");
+				if(r <= 0) throw new Exception("Радиус должен быть положительным!");
 				correct = true;
 			}
 			catch (InputMismatchException e){
