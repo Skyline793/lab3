@@ -18,14 +18,7 @@ public class Triangle //класс треугольник
 		B = new Point(x2, y2);
 		C = new Point(x3, y3);
 	}
-	
-	public void Init(int x1, int y1, int x2, int y2, int x3, int y3) //метод инициализации
-	{
-		A.Init(x1, y1);
-		B.Init(x2, y2);
-		C.Init(x3, y3);
-	}
-	
+
 	public void Read() //метод ввода с консоли
 	{
 		System.out.println("Первая вершина треугольника: ");

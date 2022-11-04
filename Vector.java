@@ -42,18 +42,16 @@ public class Vector extends Point //класс вектор, наследуем�
 		System.out.print("Введите идентификатор вектора (Enter, чтобы не создавать идентификатор): ");
 		inp.skip("\\R");
 		metka = inp.nextLine();
-		this.Init(x, y, metka);
+		this.SetX(x);
+		this.SetY(y);
+		this.SetMetka(metka);
 	}
 
 	@Override
 	public void Display() //метод вывода в консоль
 	{
-		if(metka.isEmpty())
-			System.out.printf("Вектор с координатами: (%d,%d)\n", X, Y);
-		else {
-			System.out.print("Вектор " + metka + " ");
-			System.out.printf("с координатами: (%d,%d)\n", X, Y);
-		}
+		System.out.print("Вектор " + metka + " ");
+		System.out.printf("с координатами: (%d,%d)\n", X, Y);
 	}
 	
 	public double CalcVectLen() //метод вычисления длины вектора

@@ -17,12 +17,6 @@ public class Parallelogram //класс параллелограмм
 		b = new Vector(x2, y2);
 	}
 	
-	public void Init(int x1, int y1, int x2, int y2) //метод инициализации
-	{
-		a.Init(x1, y1);
-		b.Init(x2, y2);
-	}
-	
 	public void Read() //метод ввода с консоли
 	{
 		System.out.println("Первый из векторов, на которых построен параллелограмм:");

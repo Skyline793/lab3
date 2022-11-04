@@ -18,13 +18,7 @@ public class Circle //класс круг
 		center = new Point(x,y);
 		this.R = R;
 	}
-	
-	public void Init(int x, int y, double R) //метод инициализации
-	{
-		center.Init(x, y);
-		this.R = R;
-	}
-	
+
 	public void Read() //метод ввода с консоли
 	{
 		boolean correct = false;

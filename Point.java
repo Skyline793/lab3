@@ -31,15 +31,18 @@ public class Point //класс точка
 		counter++;
 	}
 
-	public void Init(int X, int Y) //метод инициализации
+	public void SetX(int X) //метод установки значения X
 	{
 		this.X = X;
+	}
+
+	public void SetY(int Y) //метод установки значения Y
+	{
 		this.Y = Y;
 	}
 
-	public void Init(int X, int Y, String metka){ //метод инициализации с идентификатором
-		this.X = X;
-		this.Y = Y;
+	public void SetMetka(String metka) //метод установки значения идентификатора
+	{
 		this.metka = metka;
 	}
 
@@ -53,14 +56,14 @@ public class Point //класс точка
 		return Y;
 	}
 
+	public String GetMetka() //метод получения идентификатора
+	{
+		return metka;
+	}
 	public void Display() //метод вывода в консоль
 	{
-		if(metka.isEmpty())
-			System.out.printf("(%d,%d)", X, Y);
-		else {
-			System.out.print(metka);
-			System.out.printf("(%d,%d)", X, Y);
-		}
+		System.out.print(metka);
+		System.out.printf("(%d,%d)", X, Y);
 	}
 
 	public void Read() //метод ввода с консоли
@@ -86,9 +89,9 @@ public class Point //класс точка
 		System.out.print("Введите идентификатор точки (Enter, чтобы не создавать идентификатор): ");
 		inp.skip("\\R");
 		metka = inp.nextLine();
-		this.X = x;
-		this.Y = y;
-		this.metka = metka;
+		this.SetX(x);
+		this.SetY(y);
+		this.SetMetka(metka);
 	}
 
 	public void PolarCoords() //метод перевода в полярные координаты
@@ -96,7 +99,7 @@ public class Point //класс точка
 		double r, f = 0;
 		r = sqrt(X * X + Y * Y);
 		try {
-			f = atan(Y / X);
+			f = atan((double)Y / X);
 			if (X > 0 && Y < 0)
 				f += 2 * PI;
 			if (X < 0)
