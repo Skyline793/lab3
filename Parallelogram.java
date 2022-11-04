@@ -25,11 +25,9 @@ public class Parallelogram //класс параллелограмм
 		b.Read();
 	}
 	
-	public void Display() //метод вывода в консоль
+	public String toString() //метод вывода в консоль
 	{
-		System.out.println("Параллелограмм, построенный на векторах a и b:");
-		a.Display();
-		b.Display();
+		return "Параллелограмм, построенный на векторах a и b:\n" + a + "\n" + b;
 	}
 	
 	public double CalcSquare() //метод вычисления площади

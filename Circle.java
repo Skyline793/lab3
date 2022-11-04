@@ -47,11 +47,9 @@ public class Circle //класс круг
 		R = r;
 	}
 	
-	public void Display() //метод вывода в консоль
+	public String toString() //метод вывода в консоль
 	{
-		System.out.print("Круг с центром в точке ");
-		center.Display();
-		System.out.printf(" и радиусом R=%.3f\n", R);
+		return String.format("Круг с центром в точке " + center + " и радиусом R=%.2f", R);
 	}
 	
 	public void PrintEquation() //метод вывода уравнения окружности

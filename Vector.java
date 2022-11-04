@@ -48,12 +48,14 @@ public class Vector extends Point //класс вектор, наследуем�
 	}
 
 	@Override
-	public void Display() //метод вывода в консоль
+	public String toString() //метод вывода в консоль
 	{
-		System.out.print("Вектор " + metka + " ");
-		System.out.printf("с координатами: (%d,%d)\n", X, Y);
+		if(metka.isEmpty())
+			return "Вектор с координатами: (" + X + "," + Y + ")";
+		else
+			return "Вектор " + metka + " с координатами: (" + X + "," + Y + ")";
 	}
-	
+
 	public double CalcVectLen() //метод вычисления длины вектора
 	{
 		double length = sqrt(X * X + Y * Y);

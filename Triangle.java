@@ -29,15 +29,9 @@ public class Triangle //класс треугольник
 		C.Read();
 	}
 	
-	public void Display() //метод вывода в консоль
+	public String toString() //метод вывода в консоль
 	{
-		System.out.print("Треугольник с вершинами ");
-		A.Display();
-		System.out.print(", ");
-		B.Display();
-		System.out.print(", ");
-		C.Display();
-		System.out.println();
+		return "Треугольник с вершинами " + A + ", " + B + ", " + C;
 	}
 	
 	public double CalcSquare() //метод вычисления площади 

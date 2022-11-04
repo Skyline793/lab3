@@ -60,10 +60,10 @@ public class Point //класс точка
 	{
 		return metka;
 	}
-	public void Display() //метод вывода в консоль
+
+	public String toString() //метод вывода в консоль
 	{
-		System.out.print(metka);
-		System.out.printf("(%d,%d)", X, Y);
+		return metka + "(" + X + "," + Y + ")";
 	}
 
 	public void Read() //метод ввода с консоли
