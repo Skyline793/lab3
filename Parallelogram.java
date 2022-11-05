@@ -1,7 +1,8 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Parallelogram //класс параллелограмм
+public class Parallelogram extends Figure //класс параллелограмм
 {
 	private Vector a, b; //вектора, на которых построен параллелограмм
 	
@@ -16,18 +17,48 @@ public class Parallelogram //класс параллелограмм
 		a = new Vector(x1, y1);
 		b = new Vector(x2, y2);
 	}
-	
+
+	Parallelogram(int x1, int y1, int x2, int y2, int colorIndex) //конструктор с параметрами
+	{
+		a = new Vector(x1, y1);
+		b = new Vector(x2, y2);
+		this.colorIndex = colorIndex;
+	}
+
 	public void Read() //метод ввода с консоли
 	{
+		boolean correct = false;
+		int index = 0;
 		System.out.println("Первый из векторов, на которых построен параллелограмм:");
 		a.Read();
 		System.out.println("Второй из векторов, на которых построен параллелограмм:");
 		b.Read();
+		Scanner inp = new Scanner(System.in);
+		System.out.println("Центр окружности:");
+		while(correct == false) {
+			System.out.println("Выберите цвет фигуры:\n0 - без цвета\n1 - красный\n2 - синий\n3 - зеленый\n4 - желтый");
+			try {
+				index = inp.nextInt();
+				if(index < 0 || index > 4) throw new Exception("Введите число от 0 до 4!. Повторите ввод:");
+				correct = true;
+			}
+			catch (InputMismatchException e){
+				inp.nextLine();
+				System.out.println("Некорректное значение. Повторите ввод:");
+				correct = false;
+			}
+			catch (Exception e){
+				inp.nextLine();
+				System.out.println(e.getMessage());
+				correct = false;
+			}
+		}
+		this.colorIndex = index;
 	}
 	
 	public String toString() //метод вывода в консоль
 	{
-		return "Параллелограмм, построенный на векторах a и b:\n" + a + "\n" + b;
+		return "Параллелограмм, построенный на векторах a и b:\n" + a + "\n" + b + "\nЦвет фигуры: " + Figure.colors[colorIndex];
 	}
 	
 	public double CalcSquare() //метод вычисления площади
@@ -59,5 +90,22 @@ public class Parallelogram //класс параллелограмм
 		}
 		sinus = sqrt(1 - cosinus * cosinus);
 		rez.param = len_a * len_b * sinus;
+	}
+
+	public double CalcPerimeter() //метод вычисления площади
+	{
+		double P, len_a, len_b;
+		len_a = a.CalcVectLen();
+		len_b = b.CalcVectLen();
+		P = 2 * (len_a + len_b);
+		return P;
+	}
+
+	public void CalcPerimeter(Rezult rez) //метод вычисления площади
+	{
+		double len_a, len_b;
+		len_a = a.CalcVectLen();
+		len_b = b.CalcVectLen();
+		rez.param = 2 * (len_a + len_b);
 	}
 }

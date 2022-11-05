@@ -1,7 +1,8 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Triangle //класс треугольник
+public class Triangle extends Figure//класс треугольник
 {
 	private Point A, B, C; //вершины треугольника
 	
@@ -19,19 +20,50 @@ public class Triangle //класс треугольник
 		C = new Point(x3, y3);
 	}
 
+	Triangle(int x1, int y1, int x2, int y2, int x3, int y3, int colorIndex) //конструктор с параметрами
+	{
+		A = new Point(x1, y1);
+		B = new Point(x2, y2);
+		C = new Point(x3, y3);
+		this.colorIndex = colorIndex;
+	}
+
 	public void Read() //метод ввода с консоли
 	{
+		boolean correct = false;
+		int index = 0;
 		System.out.println("Первая вершина треугольника: ");
 		A.Read();
 		System.out.println("Вторая вершина треугольника: ");
 		B.Read();
 		System.out.println("Третья вершина треугольника: ");
 		C.Read();
+		Scanner inp = new Scanner(System.in);
+		System.out.println("Центр окружности:");
+		while(correct == false) {
+			System.out.println("Выберите цвет фигуры:\n0 - без цвета\n1 - красный\n2 - синий\n3 - зеленый\n4 - желтый");
+			try {
+				index = inp.nextInt();
+				if(index < 0 || index > 4) throw new Exception("Введите число от 0 до 4!. Повторите ввод:");
+				correct = true;
+			}
+			catch (InputMismatchException e){
+				inp.nextLine();
+				System.out.println("Некорректное значение. Повторите ввод:");
+				correct = false;
+			}
+			catch (Exception e){
+				inp.nextLine();
+				System.out.println(e.getMessage());
+				correct = false;
+			}
+		}
+		this.colorIndex = index;
 	}
 	
 	public String toString() //метод вывода в консоль
 	{
-		return "Треугольник с вершинами " + A + ", " + B + ", " + C;
+		return "Треугольник с вершинами " + A + ", " + B + ", " + C + ". Цвет фигуры: " + Figure.colors[colorIndex];
 	}
 	
 	public double CalcSquare() //метод вычисления площади 
