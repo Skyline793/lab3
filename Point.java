@@ -3,7 +3,7 @@ import static java.lang.Math.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Point //класс точка
+public class Point implements Cloneable //класс точка
 {
 	private static int counter = 0; //статический счетчик количества точек
 	protected String metka = ""; //идентификатор точки
@@ -120,5 +120,17 @@ public class Point //класс точка
 	public static int GetCount() //статический метод получения счетчика
 	{
 		return counter;
+	}
+
+	public Point clone()
+	{
+		try
+		{
+			return (Point)super.clone();
+		}
+		catch(CloneNotSupportedException e)
+		{
+		}
+		return this;
 	}
 }

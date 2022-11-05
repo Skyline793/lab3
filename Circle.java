@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Circle extends Figure//класс круг
+public class Circle extends Figure implements Cloneable //класс круг
 {
 	private Point center; //центр круга
 	private double R; //радиус круга
@@ -137,6 +137,19 @@ public class Circle extends Figure//класс круг
 	public void CalcPerimeter(Rezult rez) //метод вычисления площади c возвращением результата через вспомогательный класс
 	{
 		rez.param = 2 * PI * R;
+	}
+
+	public Circle clone()
+	{
+		try
+		{
+			Circle Clone = (Circle)super.clone();
+			Clone.center = (Point)center.clone();
+			return Clone;
+		}
+		catch(CloneNotSupportedException e) {
+		}
+		return this;
 	}
 }
 
