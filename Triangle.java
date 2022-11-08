@@ -22,6 +22,7 @@ public class Triangle extends Figure//класс треугольник
 
 	Triangle(int x1, int y1, int x2, int y2, int x3, int y3, int colorIndex) //конструктор с параметрами
 	{
+		if(colorIndex < 0 || colorIndex >= Figure.colors.length) throw new IllegalArgumentException("Индекс цвета вне диапазона!");
 		A = new Point(x1, y1);
 		B = new Point(x2, y2);
 		C = new Point(x3, y3);
@@ -44,7 +45,7 @@ public class Triangle extends Figure//класс треугольник
 			System.out.println("Выберите цвет фигуры:\n0 - без цвета\n1 - красный\n2 - синий\n3 - зеленый\n4 - желтый");
 			try {
 				index = inp.nextInt();
-				if(index < 0 || index > 4) throw new Exception("Введите число от 0 до 4!. Повторите ввод:");
+				SetColorIndex(index);
 				correct = true;
 			}
 			catch (InputMismatchException e){
@@ -52,13 +53,13 @@ public class Triangle extends Figure//класс треугольник
 				System.out.println("Некорректное значение. Повторите ввод:");
 				correct = false;
 			}
-			catch (Exception e){
+			catch (IllegalArgumentException e){
 				inp.nextLine();
 				System.out.println(e.getMessage());
 				correct = false;
 			}
 		}
-		this.colorIndex = index;
+		//this.colorIndex = index;
 	}
 	
 	public String toString() //метод вывода в консоль

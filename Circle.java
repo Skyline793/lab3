@@ -15,15 +15,24 @@ public class Circle extends Figure implements Cloneable //класс круг
 	
 	Circle(int x, int y, double R) //конструктор с параметрами
 	{
+		if(R < 0) throw new IllegalArgumentException("Радиус должен быть положительным!");
 		center = new Point(x,y);
 		this.R = R;
 	}
 
 	Circle(int x, int y, double R, int colorIndex) //конструктор с параметрами
 	{
+		if(R < 0) throw new IllegalArgumentException("Радиус должен быть положительным!");
+		if(colorIndex < 0 || colorIndex >= Figure.colors.length) throw new IllegalArgumentException("Индекс цвета вне диапазона!");
 		center = new Point(x,y);
 		this.R = R;
 		this.colorIndex = colorIndex;
+	}
+
+	public void SetR(double R) //метод установки радиуса
+	{
+		if(R <= 0) throw new IllegalArgumentException("Радиус должен быть положительным!");
+		this.R = R;
 	}
 
 	public void Read() //метод ввода с консоли
@@ -38,7 +47,7 @@ public class Circle extends Figure implements Cloneable //класс круг
 			System.out.print("Введите радиус круга R: ");
 			try {
 				r = inp.nextDouble();
-				if(r <= 0) throw new Exception("Радиус должен быть положительным!");
+				SetR(r);
 				correct = true;
 			}
 			catch (InputMismatchException e){
@@ -46,7 +55,7 @@ public class Circle extends Figure implements Cloneable //класс круг
 				System.out.println("Некорректное значение. Повторите ввод:");
 				correct = false;
 			}
-			catch (Exception e){
+			catch (IllegalArgumentException e){
 				inp.nextLine();
 				System.out.println(e.getMessage() + " Повторите ввод:");
 				correct = false;
@@ -57,7 +66,7 @@ public class Circle extends Figure implements Cloneable //класс круг
 			System.out.println("Выберите цвет фигуры:\n0 - без цвета\n1 - красный\n2 - синий\n3 - зеленый\n4 - желтый");
 			try {
 				index = inp.nextInt();
-				if(index < 0 || index > 4) throw new Exception("Введите число от 0 до 4!. Повторите ввод:");
+				SetColorIndex(index);
 				correct = true;
 			}
 			catch (InputMismatchException e){
@@ -65,14 +74,12 @@ public class Circle extends Figure implements Cloneable //класс круг
 				System.out.println("Некорректное значение. Повторите ввод:");
 				correct = false;
 			}
-			catch (Exception e){
+			catch (IllegalArgumentException e){
 				inp.nextLine();
 				System.out.println(e.getMessage());
 				correct = false;
 			}
 		}
-		colorIndex = index;
-		R = r;
 	}
 	
 	public String toString() //метод вывода в консоль

@@ -20,6 +20,7 @@ public class Parallelogram extends Figure //класс параллелогра�
 
 	Parallelogram(int x1, int y1, int x2, int y2, int colorIndex) //конструктор с параметрами
 	{
+		if(colorIndex < 0 || colorIndex >= Figure.colors.length) throw new IllegalArgumentException("Индекс цвета вне диапазона!");
 		a = new Vector(x1, y1);
 		b = new Vector(x2, y2);
 		this.colorIndex = colorIndex;
@@ -39,7 +40,7 @@ public class Parallelogram extends Figure //класс параллелогра�
 			System.out.println("Выберите цвет фигуры:\n0 - без цвета\n1 - красный\n2 - синий\n3 - зеленый\n4 - желтый");
 			try {
 				index = inp.nextInt();
-				if(index < 0 || index > 4) throw new Exception("Введите число от 0 до 4!. Повторите ввод:");
+				SetColorIndex(index);
 				correct = true;
 			}
 			catch (InputMismatchException e){
@@ -47,13 +48,12 @@ public class Parallelogram extends Figure //класс параллелогра�
 				System.out.println("Некорректное значение. Повторите ввод:");
 				correct = false;
 			}
-			catch (Exception e){
+			catch (IllegalArgumentException e){
 				inp.nextLine();
 				System.out.println(e.getMessage());
 				correct = false;
 			}
 		}
-		this.colorIndex = index;
 	}
 	
 	public String toString() //метод вывода в консоль
