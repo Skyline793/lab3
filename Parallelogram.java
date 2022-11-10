@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Parallelogram extends Figure //класс параллелограмм
+public class Parallelogram extends Figure implements Cloneable, Readable//класс параллелограмм
 {
 	private Vector a, b; //вектора, на которых построен параллелограмм
 	
@@ -37,7 +37,8 @@ public class Parallelogram extends Figure //класс параллелогра�
 		Scanner inp = new Scanner(System.in);
 		System.out.println("Центр окружности:");
 		while(correct == false) {
-			System.out.println("Выберите цвет фигуры:\n0 - без цвета\n1 - красный\n2 - синий\n3 - зеленый\n4 - желтый");
+			System.out.println("Выберите цвет фигуры:");
+			Figure.ShowColors();
 			try {
 				index = inp.nextInt();
 				SetColorIndex(index);
@@ -107,5 +108,15 @@ public class Parallelogram extends Figure //класс параллелогра�
 		len_a = a.CalcVectLen();
 		len_b = b.CalcVectLen();
 		rez.param = 2 * (len_a + len_b);
+	}
+
+	public Parallelogram clone() //метод клонирования
+	{
+		try {
+			return (Parallelogram)super.clone();
+		}
+		catch(CloneNotSupportedException e) {
+			return this;
+		}
 	}
 }

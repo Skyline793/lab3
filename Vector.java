@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Vector extends Point //класс вектор, наследуемый от класса точка
+public class Vector extends Point implements Readable//класс вектор, наследуемый от класса точка
 {
 	Vector() //конструктор без параметров
 	{
@@ -18,7 +18,7 @@ public class Vector extends Point //класс вектор, наследуем�
 	{
 		super(x, y, metka);
 	}
-	@Override
+
 	public void Read() //метод ввода с консоли
 	{
 		boolean correct = false;
