@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Triangle extends Figure//класс треугольник
+public class Triangle extends Figure implements Readable//класс треугольник
 {
 	private Point A, B, C; //вершины треугольника
 	
@@ -42,7 +42,8 @@ public class Triangle extends Figure//класс треугольник
 		Scanner inp = new Scanner(System.in);
 		System.out.println("Центр окружности:");
 		while(correct == false) {
-			System.out.println("Выберите цвет фигуры:\n0 - без цвета\n1 - красный\n2 - синий\n3 - зеленый\n4 - желтый");
+			System.out.println("Выберите цвет фигуры:");
+			Figure.ShowColors();
 			try {
 				index = inp.nextInt();
 				SetColorIndex(index);
@@ -59,7 +60,6 @@ public class Triangle extends Figure//класс треугольник
 				correct = false;
 			}
 		}
-		//this.colorIndex = index;
 	}
 	
 	public String toString() //метод вывода в консоль

@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.Math.*;
 
-public class Circle extends Figure implements Cloneable //класс круг
+public class Circle extends Figure implements Cloneable, Readable//класс круг
 {
 	private Point center; //центр круга
 	private double R; //радиус круга
@@ -63,7 +63,8 @@ public class Circle extends Figure implements Cloneable //класс круг
 		}
 		correct = false;
 		while(correct == false) {
-			System.out.println("Выберите цвет фигуры:\n0 - без цвета\n1 - красный\n2 - синий\n3 - зеленый\n4 - желтый");
+			System.out.println("Выберите цвет фигуры:");
+			Figure.ShowColors();
 			try {
 				index = inp.nextInt();
 				SetColorIndex(index);
@@ -146,7 +147,7 @@ public class Circle extends Figure implements Cloneable //класс круг
 		rez.param = 2 * PI * R;
 	}
 
-	public Circle clone()
+	public Circle clone() //метод клонирования
 	{
 		try
 		{
