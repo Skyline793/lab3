@@ -1,5 +1,7 @@
 import org.w3c.dom.ranges.RangeException;
 
+import java.util.Comparator;
+
 public abstract class Figure { //абстрактный класс фигура
     protected static String[] colors = {"не задан", "красный", "синий", "зеленый", "желтый"}; //массив цветов фигуры
     protected int colorIndex; //выбранный индекс цвета
