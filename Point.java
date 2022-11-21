@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Point implements Cloneable, Readable //класс точка
 {
 	private static int counter = 0; //статический счетчик количества точек
-	protected String metka = ""; //идентификатор точки
 	protected int X, Y; //координаты точки
 
 	Point() //конструктор без параметров
@@ -23,14 +22,6 @@ public class Point implements Cloneable, Readable //класс точка
 		counter++;
 	}
 
-	Point(int X, int Y, String metka) //конструктор с параметрами
-	{
-		this.X = X;
-		this.Y = Y;
-		this.metka = metka;
-		counter++;
-	}
-
 	public void SetX(int X) //метод установки значения X
 	{
 		this.X = X;
@@ -39,11 +30,6 @@ public class Point implements Cloneable, Readable //класс точка
 	public void SetY(int Y) //метод установки значения Y
 	{
 		this.Y = Y;
-	}
-
-	public void SetMetka(String metka) //метод установки значения идентификатора
-	{
-		this.metka = metka;
 	}
 
 	public int GetX() //метод получения координаты X
@@ -56,14 +42,9 @@ public class Point implements Cloneable, Readable //класс точка
 		return Y;
 	}
 
-	public String GetMetka() //метод получения идентификатора
-	{
-		return metka;
-	}
-
 	public String toString() //метод вывода в консоль
 	{
-		return metka + "(" + X + "," + Y + ")";
+		return "(" + X + "," + Y + ")";
 	}
 
 	public void Read() //метод ввода с консоли
@@ -86,12 +67,8 @@ public class Point implements Cloneable, Readable //класс точка
 			System.out.println("Некорректное значение. Повторите ввод: ");
 		}
 	}
-		System.out.print("Введите идентификатор точки (Enter, чтобы не создавать идентификатор): ");
-		inp.skip("\\R");
-		metka = inp.nextLine();
 		this.SetX(x);
 		this.SetY(y);
-		this.SetMetka(metka);
 	}
 
 	public void PolarCoords() //метод перевода в полярные координаты

@@ -14,11 +14,6 @@ public class Vector extends Point implements Readable//класс вектор, 
 		super(x, y);
 	}
 
-	Vector(int x, int y, String metka) //конструктор с параметрами
-	{
-		super(x, y, metka);
-	}
-
 	public void Read() //метод ввода с консоли
 	{
 		boolean correct = false;
@@ -39,21 +34,14 @@ public class Vector extends Point implements Readable//класс вектор, 
 				System.out.println("Некорректное значение. Повторите ввод: ");
 			}
 		}
-		System.out.print("Введите идентификатор вектора (Enter, чтобы не создавать идентификатор): ");
-		inp.skip("\\R");
-		metka = inp.nextLine();
 		this.SetX(x);
 		this.SetY(y);
-		this.SetMetka(metka);
 	}
 
 	@Override
 	public String toString() //метод вывода в консоль
 	{
-		if(metka.isEmpty())
-			return "Вектор с координатами: (" + X + "," + Y + ")";
-		else
-			return "Вектор " + metka + " с координатами: (" + X + "," + Y + ")";
+		return "Вектор с координатами: (" + X + "," + Y + ")";
 	}
 
 	public double CalcVectLen() //метод вычисления длины вектора

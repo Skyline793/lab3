@@ -6,26 +6,35 @@ public class lab6
 {
 	public static void main(String[] args)
 	{
-		Circle c1 = new Circle(1,2, 3), c2 = new Circle(0,0, 2), c3 = new Circle(1,1, 4);
-
-		FigureArray r = new FigureArray();
-		r.Add(new Circle(1,2,5));
-		r.Add(c2);
-		r.Add(c3);
-		r.Insert(c3, 0);
-		r.Display();
+		FigureArray arr = new FigureArray();
+		arr.Add(new Circle(0,0,1,0));
+		arr.Add(new Circle(2,1,2.3,3));
+		arr.Add(new Triangle(-4,3,0,-2,3,5,1));
+		arr.Add(new Parallelogram(5,4,1,-6,1));
+		arr.Add(new Parallelogram(-3,5,1,-4,2));
+		//ввод фигуры
+		arr.Read();
+		//вывод фигуры
+		arr.Display();
+		//сортировка по возрастанию площади
+		System.out.println("сортировка по возрастанию площади");
+		arr.SortByMaxSquare();
+		arr.Display();
 		System.out.println();
-		r.SortByMaxSquare();
-		r.Display();
+		//сортировка по убыванию площади
+		System.out.println("сортировка по убыванию площади");
+		arr.SortByMinSquare();
+		arr.Display();
 		System.out.println();
-		r.SortByMinSquare();
-		r.Display();
+		//сортировка по возрастанию периметра
+		System.out.println("сортировка по возрастанию периметра");
+		arr.SortByMaxPerimeter();
+		arr.Display();
 		System.out.println();
-		r.SortByMaxPerimeter();
-		r.Display();
-		System.out.println();
-		r.SortByMinPerimeter();
-		r.Display();
+		//сортировка по убыванию периметра
+		System.out.println("сортировка по убыванию периметра");
+		arr.SortByMinPerimeter();
+		arr.Display();
 
 	}
 }
